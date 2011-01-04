@@ -43,7 +43,7 @@ local realm, name = GetRealmName(), UnitName("player")
 if realm == "Area 52" then
 
 	if name == "Bear" then
-		macro({
+		macro("Travel Form(Shapeshift)", {
 			"Running Wild(Racial)",
 			"Spotted Frostsaber",
 			"Striped Dawnsaber",
