@@ -11,6 +11,10 @@ local function macro(combat, ground, flying)
     t = t.. "/cancelaura [form:1] Bear Form; [form:3] Cat Form; [form:5] Moonkin Form"
     t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)"
   else
+		local crusader = GetSpellInfo(GetSpellInfo(32223))
+		if crusader then
+    	t = t.. "/cast [nomounted] !".. crusader.. "; !Devotion Aura\n"
+		end
   	if flying then
       t = t.. "/castrandom [nomounted,nocombat,flyable] ".. table.concat(flying, ", ").. "\n"
     end
