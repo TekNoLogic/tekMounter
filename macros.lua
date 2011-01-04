@@ -10,16 +10,15 @@ local function macro(combat, ground, flying)
   if ns.isdruid then
     t = t.. "/cancelaura [form:1] Bear Form; [form:3] Cat Form; [form:5] Moonkin Form\n"
     t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)\n"
-  else
-		local crusader = GetSpellInfo(GetSpellInfo(32223))
-		if crusader then
-    	t = t.. "/cast [nomounted] !".. crusader.. "; !Devotion Aura\n"
-		end
-  	if flying then
-      t = t.. "/castrandom [nomounted,nocombat,flyable] ".. table.concat(flying, ", ").. "\n"
-    end
-    t = t.. "/castrandom [noswimming,nomounted,nocombat,noflyable] ".. table.concat(ground, ", ").. "\n"
   end
+	local crusader = GetSpellInfo(GetSpellInfo(32223))
+	if crusader then
+   	t = t.. "/cast [nomounted] !".. crusader.. "; !Devotion Aura\n"
+	end
+ 	if flying then
+    t = t.. "/castrandom [nomounted,nocombat,flyable] ".. table.concat(flying, ", ").. "\n"
+  end
+  t = t.. "/castrandom [noswimming,nomounted,nocombat".. (flying and ",noflyable" or "").. "] ".. table.concat(ground, ", ").. "\n"
   t = t.. "/stopmacro [nomounted]\n"
   t = t.. "/dismount [noflying][flying,mod]\n"
   ns.macro = t
@@ -28,12 +27,11 @@ local function macro(combat, ground, flying)
   t = t.. "#showtooltip [combat,nomounted] ".. combat
   if ns.isdruid then
     t = t.. "; [nomounted,swimming] Aquatic Form(Shapeshift)"
-  else
-  	if flying then
-      t = t.. "; [flyable] ".. flying[1]
-    end
-    t = t.. "; ".. ground[1]
+	  end
+ 	if flying then
+    t = t.. "; [flyable] ".. flying[1]
   end
+  t = t.. "; ".. ground[1]
 	t = t.. "\n/click tekMounter"
 	ns.placeholder = t
 end

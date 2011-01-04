@@ -12,7 +12,6 @@ frame:SetAttribute("macrotext", ns.macro)
 frame:RegisterEvent("PLAYER_LOGIN")
 frame:SetScript("OnEvent", function()
 	if ns.placeholder then
-		print(ns.placeholder)
 		local macroid = GetMacroIndexByName("tekMounter")
 		if macroid then EditMacro(macroid, "tekMounter", 1, ns.placeholder, 1) end
 	end
