@@ -8,8 +8,8 @@ local function macro(combat, ground, flying)
   local t = ""
   t = t.. "/cast [combat,nomounted] ".. combat.. "\n"
   if ns.isdruid then
-    t = t.. "/cancelaura [form:1] Bear Form; [form:3] Cat Form; [form:5] Moonkin Form"
-    t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)"
+    t = t.. "/cancelaura [form:1] Bear Form; [form:3] Cat Form; [form:5] Moonkin Form\n"
+    t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)\n"
   else
 		local crusader = GetSpellInfo(GetSpellInfo(32223))
 		if crusader then
