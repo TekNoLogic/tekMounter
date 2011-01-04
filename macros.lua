@@ -19,6 +19,19 @@ local function macro(combat, ground, flying)
   t = t.. "/stopmacro [nomounted]\n"
   t = t.. "/dismount [noflying][flying,mod]\n"
   ns.macro = t
+
+	local t = ""
+  t = t.. "#showtooltip [combat,nomounted] ".. combat
+  if ns.isdruid then
+    t = t.. "; [nomounted,swimming] Aquatic Form(Shapeshift)"
+  else
+  	if flying then
+      t = t.. "; [flyable] ".. flying[1]
+    end
+    t = t.. "; ".. ground[1]
+  end
+	t = t.. "\n/click tekMounter"
+	ns.placeholder = t
 end
 
 
@@ -62,5 +75,3 @@ if realm == "Area 52" then
 	end
 
 end
-
-print(ns.macro)
