@@ -21,7 +21,7 @@ if ns.isdruid then
 	frame:SetScript("PreClick", function(self)
 		if InCombatLockdown() then return end
 
-		if GetUnitSpeed("player") > 0 then
+		if GetUnitSpeed("player") > 0 and not IsSwimming() then
 			frame:SetAttribute("macrotext", [[
 /cast [nomounted] Travel Form(Shapeshift)
 /stopmacro [nomounted]
