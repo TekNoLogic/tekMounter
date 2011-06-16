@@ -2,10 +2,6 @@
 local myname, ns = ...
 
 
-local function macro(combat, ground, flying)
-end
-
-
 local emergency_spells = {
 	DRUID = "Travel Form(Shapeshift)",
 	PALADIN = "Divine Shield",
