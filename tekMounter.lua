@@ -2,6 +2,12 @@
 local myname, ns = ...
 -- if not ns.macro then return end
 
+local function dumpmacro(...)
+	for i=1,select("#", ...) do
+		local v = select(i, ...)
+		ns.Debug(v)
+	end
+end
 
 local frame = CreateFrame("Button", "tekMounter", UIParent, "SecureActionButtonTemplate")
 frame:EnableMouse(true)
@@ -14,6 +20,9 @@ frame:SetScript("OnEvent", function()
 	if ns.placeholder and not InCombatLockdown() then
 		frame:SetAttribute("type", "macro")
 		frame:SetAttribute("macrotext", ns.macro)
+		ns.Debug(" ")
+		ns.Debug("Macro updated")
+		dumpmacro(string.split("\n", ns.macro))
 
 		local macroid = GetMacroIndexByName("tekMounter")
 		if macroid then EditMacro(macroid, "tekMounter", 1, ns.placeholder, 1) end

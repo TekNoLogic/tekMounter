@@ -4,5 +4,9 @@
 ## Author: Tekkub Stoutwrithe
 ## Version: Alpha
 
+## OptionalDeps: tekDebug, tekErr
+
+debug.lua
+
 macros.lua
 tekMounter.lua

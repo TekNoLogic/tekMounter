@@ -13,7 +13,6 @@ local emergency_spells = {
 }
 function ns.Scan()
 	local flying, ground, _, class = {}, {}, UnitClass("player")
-	TEKKKKKK = {flying, ground, ns}
 	if UnitRace("player") == "Worgen" then table.insert(ground, "Running Wild(Racial)") end
 	for i=1,GetNumCompanions("MOUNT") do
 		local _, name, spell_id, _, _, mount_type = GetCompanionInfo("MOUNT", i)
