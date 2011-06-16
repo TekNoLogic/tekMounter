@@ -10,6 +10,7 @@ local emergency_spells = {
 	DRUID = "Travel Form(Shapeshift)",
 	PALADIN = "Divine Shield",
 	PRIEST = "Psychic Scream",
+	HUNTER = "Feign Death",
 }
 function ns.Scan()
 	local flying, ground, _, class = {}, {}, UnitClass("player")
