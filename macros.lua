@@ -13,13 +13,20 @@ function ns.Scan()
 	if UnitRace("player") == "Worgen" then table.insert(ground, "Running Wild(Racial)") end
 	for i=1,GetNumCompanions("MOUNT") do
 		local _, name, spell_id, _, _, mount_type = GetCompanionInfo("MOUNT", i)
-		if bit.band(mount_type, 2) ~= 0 then
-			-- flying mount
-			table.insert(flying, name)
-		elseif bit.band(mount_type, 1) ~= 0 then
-			-- ground mount
-			table.insert(ground, name)
-		end
+		-- mount_type bitmap:
+		-- JUSFG - jump, underwater, swim on surface, fly, ground
+		-- 01100 - seahorse
+		-- 11101 - land
+		-- 00011 - air
+		-- 11111 - landair
+
+		-- It sems if a flying mount can jump, that means it can be used as a
+		-- ground mount in noflyable areas
+		local canrun  = bit.band(mount_type, 1) ~= 0
+		local canfly  = bit.band(mount_type, 2) ~= 0
+		local canjump = bit.band(mount_type, 16) ~= 0
+		if canfly then table.insert(flying, name) end
+		if canrun and (not canfly or canjump) then table.insert(ground, name) end
 	end
 
 	if not next(ground) then return end
