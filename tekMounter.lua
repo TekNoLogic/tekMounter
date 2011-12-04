@@ -25,7 +25,7 @@ frame:SetScript("OnEvent", function()
 		dumpmacro(string.split("\n", ns.macro))
 
 		local macroid = GetMacroIndexByName("tekMounter")
-		if macroid then EditMacro(macroid, "tekMounter", 1, ns.placeholder, 1) end
+		if macroid then EditMacro(macroid, "tekMounter", "INV_Misc_QuestionMark", ns.placeholder, 1) end
 
 		if ns.isdruid and not ns.druidpreclick then
 			frame:SetScript("PreClick", function(self)
