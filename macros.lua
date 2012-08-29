@@ -42,10 +42,6 @@ function ns.Scan()
     t = t.. "/cancelaura [form:1] Bear Form; [form:3] Cat Form; [form:5] Moonkin Form\n"
     t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)\n"
   end
-	local crusader = GetSpellInfo(GetSpellInfo(32223))
-	if crusader then
-   	t = t.. "/cast [nomounted] !".. crusader.. "; !Devotion Aura\n"
-	end
  	if ns.canfly then
     t = t.. "/castrandom [nomounted,nocombat,flyable] ".. table.concat(flying, ", ").. "\n"
   end
