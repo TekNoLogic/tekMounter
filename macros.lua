@@ -7,6 +7,9 @@ local emergency_spells = {
 	PALADIN = "Divine Shield",
 	PRIEST = "Psychic Scream",
 	HUNTER = "Feign Death",
+	WARLOCK = "Feign Death",
+	SHAMAN = "Feign Death",
+	MAGE = "Feign Death",
 }
 function ns.Scan()
 	local flying, ground, _, class = {}, {}, UnitClass("player")
