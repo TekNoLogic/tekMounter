@@ -17,6 +17,12 @@ local aqmounts = {
 	[26055] = 'yellow',
 	[26056] = 'green',
 }
+local trademounts = {
+	[44153] = 12656, -- Engineering 300
+	[44151] = 30350, -- Engineering 375
+	[44554] = 12180, -- Tailoring 300
+	[61309] = 51309, -- Tailoring 450
+}
 function ns.Scan()
 	local flying, ground, _, class = {}, {}, UnitClass("player")
 	if UnitRace("player") == "Worgen" then table.insert(ground, "Running Wild(Racial)") end
@@ -35,7 +41,9 @@ function ns.Scan()
 		local canfly  = bit.band(mount_type, 2) ~= 0
 		local canjump = bit.band(mount_type, 16) ~= 0
 		local isaq    = aqmounts[spell_id]
-		if not isaq then
+		local canuse  = not trademounts[spell_id]
+										or GetSpellInfo((GetSpellInfo(trademounts[spell_id])))
+		if canuse and not isaq then
 			if canfly then table.insert(flying, name) end
 			if canrun and (not canfly or canjump) then table.insert(ground, name) end
 		end
