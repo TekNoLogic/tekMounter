@@ -11,6 +11,12 @@ local emergency_spells = {
 	SHAMAN = "Feign Death",
 	MAGE = "Feign Death",
 }
+local aqmounts = {
+	[25953] = 'blue',
+	[26054] = 'red',
+	[26055] = 'yellow',
+	[26056] = 'green',
+}
 function ns.Scan()
 	local flying, ground, _, class = {}, {}, UnitClass("player")
 	if UnitRace("player") == "Worgen" then table.insert(ground, "Running Wild(Racial)") end
@@ -28,8 +34,11 @@ function ns.Scan()
 		local canrun  = bit.band(mount_type, 1) ~= 0
 		local canfly  = bit.band(mount_type, 2) ~= 0
 		local canjump = bit.band(mount_type, 16) ~= 0
-		if canfly then table.insert(flying, name) end
-		if canrun and (not canfly or canjump) then table.insert(ground, name) end
+		local isaq    = aqmounts[spell_id]
+		if not isaq then
+			if canfly then table.insert(flying, name) end
+			if canrun and (not canfly or canjump) then table.insert(ground, name) end
+		end
 	end
 
 	if not next(ground) then return end
