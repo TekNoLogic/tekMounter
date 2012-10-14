@@ -10,7 +10,7 @@ local emergency_spells = {
 	WARLOCK = "Feign Death",
 	SHAMAN = "Feign Death",
 	MAGE = "Feign Death",
-	MONK = "Feign Death",
+	MONK = "Touch of Death",
 }
 local aqmounts = {
 	[25953] = 'blue',
