@@ -6,7 +6,8 @@
 
 ## OptionalDeps: tekDebug, tekErr
 
-debug.lua
+externals\print.lua
+externals\debug.lua
 
 macros.lua
 tekMounter.lua
