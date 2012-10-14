@@ -64,9 +64,9 @@ function ns.Scan()
     t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)\n"
   end
  	if ns.canfly then
-    t = t.. "/castrandom [nomounted,nocombat,flyable] ".. table.concat(flying, ", ").. "\n"
+    t = t.. "/cast [nomounted,nocombat,flyable] ".. ns.trand(flying).. "\n"
   end
-  t = t.. "/castrandom [noswimming,nomounted,nocombat".. (ns.canfly and ",noflyable" or "").. "] ".. table.concat(ground, ", ").. "\n"
+  t = t.. "/cast [noswimming,nomounted,nocombat".. (ns.canfly and ",noflyable" or "").. "] ".. ns.trand(ground).. "\n"
   t = t.. "/stopmacro [nomounted]\n"
   t = t.. "/dismount [noflying][flying,mod]\n"
   ns.macro = t

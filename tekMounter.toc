@@ -6,6 +6,7 @@
 
 ## OptionalDeps: tekDebug, tekErr
 
+externals\trand.lua
 externals\print.lua
 externals\debug.lua
 
