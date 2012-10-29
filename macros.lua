@@ -24,8 +24,12 @@ local trademounts = {
 	[44554] = 12180, -- Tailoring 300
 	[61309] = 51309, -- Tailoring 450
 }
+local multipass = {
+	[121820] = 'flying', -- Obsidian Nightwing
+}
 function ns.Scan()
-	local flying, ground, _, class = {}, {}, UnitClass("player")
+	local flying, ground, multi, multifly = {}, {}, {}, {}
+	local _, class = UnitClass("player")
 	if UnitRace("player") == "Worgen" then table.insert(ground, "Running Wild(Racial)") end
 	for i=1,GetNumCompanions("MOUNT") do
 		local _, name, spell_id, _, _, mount_type = GetCompanionInfo("MOUNT", i)
@@ -47,10 +51,17 @@ function ns.Scan()
 		if canuse and not isaq then
 			if canfly then table.insert(flying, name) end
 			if canrun and (not canfly or canjump) then table.insert(ground, name) end
+			if multipass[spell_id] then table.insert(multi, name) end
+			if multipass[spell_id] == 'flying' then table.insert(multifly, name) end
 		end
 	end
 
 	if not next(ground) then return end
+
+	if UnitInParty('player') then
+		if next(multi) then ground = multi end
+		if next(multifly) then flying = multifly end
+	end
 
 	ns.isdruid = class == "DRUID"
 	if ns.isdruid then flying = {GetSpellInfo("Swift Flight Form") or GetSpellInfo("Flight Form")} end
