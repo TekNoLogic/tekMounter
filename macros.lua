@@ -58,7 +58,7 @@ function ns.Scan()
 
 	if not next(ground) then return end
 
-	if UnitInParty('player') then
+	if UnitExists('party1') and not UnitExists('party2') and UnitIsConnected('party1') then
 		if next(multi) then ground = multi end
 		if next(multifly) then flying = multifly end
 	end
