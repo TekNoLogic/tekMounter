@@ -9,7 +9,7 @@ local emergency_spells = {
 	HUNTER = "Feign Death",
 	WARLOCK = "Feign Death",
 	SHAMAN = "Feign Death",
-	MAGE = "Feign Death",
+	MAGE = "Ice Block",
 	MONK = "Touch of Death",
 }
 local aqmounts = {
