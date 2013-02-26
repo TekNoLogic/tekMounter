@@ -1,4 +1,3 @@
-
 local myname, ns = ...
 
 
@@ -69,7 +68,9 @@ function ns.Scan()
 	ns.canfly = not not next(flying)
 
   local t = ""
-  t = t.. "/cast [combat,nomounted] ".. emergency_spells[class].. "\n"
+  local e = emergency_spells[class] or "Auto Attack"
+  
+  t = t.. "/cast [combat,nomounted] ".. e .. "\n"
   if ns.isdruid then
     t = t.. "/cancelaura [form:1] Bear Form; [form:3] Cat Form; [form:5] Moonkin Form\n"
     t = t.. "/cast [nomounted,swimming] Aquatic Form(Shapeshift)\n"
@@ -83,7 +84,7 @@ function ns.Scan()
   ns.macro = t
 
 	local t = ""
-  t = t.. "#showtooltip [combat,nomounted] ".. emergency_spells[class]
+  t = t.. "#showtooltip [combat,nomounted] ".. e
   if ns.isdruid then
     t = t.. "; [nomounted,swimming] Aquatic Form(Shapeshift)"
 	  end
