@@ -9,17 +9,12 @@ local function dumpmacro(...)
 	end
 end
 
-local frame = CreateFrame("Button", "tekMounter", UIParent, "SecureActionButtonTemplate")
-frame:EnableMouse(true)
-frame:RegisterForClicks("AnyUp")
 
-frame:RegisterEvent("PLAYER_LOGIN")
-frame:RegisterEvent("COMPANION_UPDATE")
-frame:SetScript("OnEvent", function()
+local function UpdateMacro(self)
 	ns.Scan()
 	if ns.placeholder and not InCombatLockdown() then
-		frame:SetAttribute("type", "macro")
-		frame:SetAttribute("macrotext", ns.macro)
+		self:SetAttribute("type", "macro")
+		self:SetAttribute("macrotext", ns.macro)
 		ns.Debug(" ")
 		ns.Debug("Macro updated")
 		dumpmacro(string.split("\n", ns.macro))
@@ -28,22 +23,31 @@ frame:SetScript("OnEvent", function()
 		if macroid then EditMacro(macroid, "tekMounter", "INV_Misc_QuestionMark", ns.placeholder, 1) end
 
 		if ns.isdruid and not ns.druidpreclick then
-			frame:SetScript("PreClick", function(self)
+			self:SetScript("PreClick", function(self)
 				if InCombatLockdown() then return end
 
 				if GetUnitSpeed("player") > 0 and not IsSwimming() then
-					frame:SetAttribute("macrotext", [[
+					self:SetAttribute("macrotext", [[
 /cast [nomounted] ]].. (ns.canfly and "Flight Form(Shapeshift)" or "Travel Form(Shapeshift)").. [[
 
 /stopmacro [nomounted]
 /dismount
 ]])
 				else
-					frame:SetAttribute("macrotext", ns.macro)
+					self:SetAttribute("macrotext", ns.macro)
 				end
 			end)
 			ns.druidpreclick = true
 		end
 	end
-end)
+end
+
+
+local frame = CreateFrame("Button", "tekMounter", UIParent, "SecureActionButtonTemplate")
+frame:EnableMouse(true)
+frame:RegisterForClicks("AnyUp")
+frame:RegisterEvent("PLAYER_LOGIN")
+frame:RegisterEvent("COMPANION_UPDATE")
+frame:SetScript("OnEvent", UpdateMacro)
+frame:SetScript("PostClick", UpdateMacro)
 
