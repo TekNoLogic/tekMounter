@@ -6,9 +6,9 @@
 
 ## OptionalDeps: tekDebug, tekErr
 
-externals\trand.lua
-externals\print.lua
 externals\debug.lua
+externals\print.lua
+externals\trand.lua
 
 macros.lua
 MountMe.lua
