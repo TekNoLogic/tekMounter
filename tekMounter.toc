@@ -1,12 +1,12 @@
-## Interface: 40000
+## Interface: 70100
 
 ## Title: tekMounter
 ## Author: Tekkub Stoutwrithe
-## Version: Alpha
 
 ## OptionalDeps: tekDebug, tekErr
 
 externals\debug.lua
+externals\events.lua
 externals\print.lua
 externals\trand.lua
 
