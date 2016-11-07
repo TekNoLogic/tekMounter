@@ -27,8 +27,11 @@ local function UpdateMacro(self)
 				if InCombatLockdown() then return end
 
 				if GetUnitSpeed("player") > 0 and not IsSwimming() then
+					local travel = "Travel Form(Shapeshift)"
+					if ns.CanFly() then travel = "Flight Form(Shapeshift)" end
+
 					self:SetAttribute("macrotext", [[
-/cast [nomounted] ]].. (ns.canfly and "Flight Form(Shapeshift)" or "Travel Form(Shapeshift)").. [[
+/cast [nomounted] ]].. (travel).. [[
 
 /stopmacro [nomounted]
 /dismount
@@ -50,4 +53,3 @@ frame:RegisterEvent("PLAYER_LOGIN")
 frame:RegisterEvent("COMPANION_UPDATE")
 frame:SetScript("OnEvent", UpdateMacro)
 frame:SetScript("PostClick", UpdateMacro)
-
