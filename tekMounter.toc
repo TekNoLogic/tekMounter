@@ -10,6 +10,7 @@ externals\events.lua
 externals\print.lua
 externals\trand.lua
 
+services\can_fly.lua
 services\edit_macro.lua
 services\get_ground_mount.lua
 services\filtered_companion_update.lua
