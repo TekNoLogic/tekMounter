@@ -1,8 +1,11 @@
 ﻿
 local myname, ns = ...
--- if not ns.macro then return end
+
 
 local function dumpmacro(...)
+	ns.Debug(" ")
+	ns.Debug("Macro updated")
+
 	for i=1,select("#", ...) do
 		local v = select(i, ...)
 		ns.Debug(v)
@@ -15,8 +18,7 @@ local function UpdateMacro(self)
 	if ns.placeholder and not InCombatLockdown() then
 		self:SetAttribute("type", "macro")
 		self:SetAttribute("macrotext", ns.macro)
-		ns.Debug(" ")
-		ns.Debug("Macro updated")
+
 		dumpmacro(string.split("\n", ns.macro))
 
 		ns.EditMacro(ns.placeholder)
