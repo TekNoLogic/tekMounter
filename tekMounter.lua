@@ -19,8 +19,7 @@ local function UpdateMacro(self)
 		ns.Debug("Macro updated")
 		dumpmacro(string.split("\n", ns.macro))
 
-		local macroid = GetMacroIndexByName("tekMounter")
-		if macroid then EditMacro(macroid, "tekMounter", "INV_Misc_QuestionMark", ns.placeholder, 1) end
+		ns.EditMacro(ns.placeholder)
 
 		if ns.isdruid and not ns.druidpreclick then
 			self:SetScript("PreClick", function(self)
