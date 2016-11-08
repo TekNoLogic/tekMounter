@@ -11,6 +11,7 @@ externals\print.lua
 externals\trand.lua
 
 services\get_ground_mount.lua
+services\filtered_companion_update.lua
 
 macros.lua
 MountMe.lua

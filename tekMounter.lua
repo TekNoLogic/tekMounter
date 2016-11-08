@@ -49,7 +49,9 @@ end
 local frame = CreateFrame("Button", "tekMounter", UIParent, "SecureActionButtonTemplate")
 frame:EnableMouse(true)
 frame:RegisterForClicks("AnyUp")
-frame:RegisterEvent("PLAYER_LOGIN")
-frame:RegisterEvent("COMPANION_UPDATE")
-frame:SetScript("OnEvent", UpdateMacro)
 frame:SetScript("PostClick", UpdateMacro)
+
+
+ns.RegisterCallback(frame, "_COMPANION_UPDATE", UpdateMacro)
+ns.RegisterCallback(frame, "PLAYER_LOGIN", UpdateMacro)
+ns.RegisterCallback(frame, "PLAYER_ENTERING_WORLD", UpdateMacro)
