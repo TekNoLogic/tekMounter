@@ -6,17 +6,6 @@ local NAME = "tekMounter"
 local ICON = "INV_Misc_QuestionMark"
 
 
-local function DebugMacro(...)
-	ns.Debug(" ")
-	ns.Debug("Macro updated")
-
-	for i=1,select("#", ...) do
-		local v = select(i, ...)
-		ns.Debug(v)
-	end
-end
-
-
 local function UpdateMacro(self)
 	if InCombatLockdown() then return end
 
@@ -25,7 +14,6 @@ local function UpdateMacro(self)
 
 	local macro = ns.BuildMacro()
 	EditMacro(macro_id, NAME, ICON, macro, 1)
-	DebugMacro(string.split("\n", macro))
 end
 
 
