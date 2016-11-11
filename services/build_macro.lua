@@ -9,7 +9,7 @@ local emergency_spells = {
 	PRIEST = "Psychic Scream",
 	HUNTER = "Feign Death",
 	WARLOCK = "Feign Death",
-	SHAMAN = "Feign Death",
+	SHAMAN = "Astral Shift",
 	MAGE = "Ice Block",
 	MONK = "Touch of Death",
 }
