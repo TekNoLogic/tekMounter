@@ -35,13 +35,14 @@ VEHICLE_MACRO = VEHICLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 RANDOM_MACRO = RANDOM_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 
 
-local multipass = {
-	[121820] = "flying", -- Obsidian Nightwing
-}
 function ns.BuildMacro()
 	local macro
 	if CanExitVehicle() then macro = VEHICLE_MACRO end
 
+	local multimount = ns.GetMultiMount()
+	if multimount then
+		return (macro or SIMPLE_MACRO):gsub("MOUNT", multimount)
+	end
 
 	if CLASS == "DRUID" then
 		return (macro or SIMPLE_MACRO):gsub("MOUNT", TRAVEL_FORM)
