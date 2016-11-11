@@ -6,8 +6,6 @@ local myname, ns = ...
 
 
 local GROUND_TYPE = 230
-
-
 local IDS = C_MountJournal.GetMountIDs()
 
 
