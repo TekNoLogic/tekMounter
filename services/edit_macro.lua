@@ -17,7 +17,7 @@ local function DebugMacro(...)
 end
 
 
-function WriteMacro(macro)
+local function WriteMacro(macro)
 	local macro_id = GetMacroIndexByName(NAME)
 	if not macro_id then return end
 
