@@ -12,9 +12,9 @@ externals\trand.lua
 
 events\companion_update.lua
 
+frames\macro_wrapper.lua
+
+services\build_macro.lua
 services\can_fly.lua
 services\edit_macro.lua
 services\get_ground_mount.lua
-
-macros.lua
-tekMounter.lua
