@@ -2,7 +2,7 @@
 local myname, ns = ...
 
 
-local _, class = UnitClass("player")
+local _, CLASS = UnitClass("player")
 local emergency_spells = {
 	DRUID = "Travel Form(Shapeshift)",
 	PALADIN = "Divine Shield",
@@ -13,13 +13,20 @@ local emergency_spells = {
 	MAGE = "Ice Block",
 	MONK = "Touch of Death",
 }
-local EMERGENCY_SPELL = emergency_spells[class]
-local MACRO = [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
+local EMERGENCY_SPELL = emergency_spells[CLASS]
+local GHOST_WOLF = GetSpellInfo(2645)
+
+
+local BASE_MACRO = [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
 /cast [combat,nomounted] EMERGENCY_SPELL
 /stopmacro [combat,nomounted]
 /run C_MountJournal.SummonByID(0)
 ]]
-MACRO = MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
+local MOVING_MACRO = [[#showtooltip
+/cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
+]]
+BASE_MACRO = BASE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
+MOVING_MACRO = MOVING_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 
 
 local multipass = {
@@ -28,5 +35,9 @@ local multipass = {
 
 
 function ns.BuildMacro()
-	return MACRO:gsub("MOUNT", ns.GetGroundMount())
+	if CLASS == "SHAMAN" and ns.IsMoving() then
+		return MOVING_MACRO:gsub("MOUNT", GHOST_WOLF)
+	end
+
+	return BASE_MACRO:gsub("MOUNT", ns.GetGroundMount())
 end
