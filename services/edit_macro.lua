@@ -20,5 +20,6 @@ end
 ns.RegisterCallback("_COMPANION_UPDATE", UpdateMacro)
 ns.RegisterCallback("PLAYER_LOGIN", UpdateMacro)
 ns.RegisterCallback("PLAYER_ENTERING_WORLD", UpdateMacro)
+ns.RegisterCallback("VEHICLE_UPDATE", UpdateMacro)
 ns.RegisterCallback(ns.MOVING, UpdateMacro)
 ns.RegisterCallback(ns.STATIONARY, UpdateMacro)
