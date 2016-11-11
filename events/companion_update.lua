@@ -2,8 +2,9 @@
 local myname, ns = ...
 
 
-local function OnCompanionUpdate(self, message, ...)
-	ns.SendMessage("_COMPANION_UPDATE", ...)
+local function OnCompanionUpdate(self, message, type, ...)
+	if type ~= "MOUNT" then return end
+	ns.SendMessage("_COMPANION_UPDATE", type, ...)
 end
 
 
