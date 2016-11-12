@@ -21,17 +21,19 @@ local TRAVEL_FORM = GetSpellInfo(783)
 local SIMPLE_MACRO = [[#showtooltip
 /cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
 ]]
+SIMPLE_MACRO = SIMPLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
+
 local VEHICLE_MACRO = [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
 /run if CanExitVehicle() then VehicleExit() end
 /cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
 ]]
+VEHICLE_MACRO = VEHICLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
+
 local RANDOM_MACRO = [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
 /cast [combat,nomounted] EMERGENCY_SPELL
 /stopmacro [combat,nomounted]
 /run C_MountJournal.SummonByID(0)
 ]]
-SIMPLE_MACRO = SIMPLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
-VEHICLE_MACRO = VEHICLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 RANDOM_MACRO = RANDOM_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 
 
