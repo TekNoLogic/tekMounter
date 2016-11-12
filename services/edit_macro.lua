@@ -17,6 +17,11 @@ local function UpdateMacro(self)
 end
 
 
+local function OnVehicle(self, event, unit)
+	if unit == "player" then return UpdateMacro(self) end
+end
+
+
 ns.RegisterCallback("_COMPANION_UPDATE", UpdateMacro)
 ns.RegisterCallback("_ENTERING_COMBAT", UpdateMacro)
 ns.RegisterCallback("_LEAVING_COMBAT", UpdateMacro)
@@ -24,4 +29,6 @@ ns.RegisterCallback("_PLAYER_MOVING", UpdateMacro)
 ns.RegisterCallback("_PLAYER_STATIONARY", UpdateMacro)
 ns.RegisterCallback("PLAYER_ENTERING_WORLD", UpdateMacro)
 ns.RegisterCallback("PLAYER_LOGIN", UpdateMacro)
+ns.RegisterCallback("UNIT_ENTERED_VEHICLE", OnVehicle)
+ns.RegisterCallback("UNIT_EXITED_VEHICLE", OnVehicle)
 ns.RegisterCallback("VEHICLE_UPDATE", UpdateMacro)
