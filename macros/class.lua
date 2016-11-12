@@ -13,7 +13,7 @@ local MACRO = ns.GenerateMacro(
 
 function ns.GetClassMacro()
 	if CLASS == "DRUID" then return MACRO:gsub("MOUNT", TRAVEL_FORM) end
-	if CLASS == "SHAMAN" and ns.IsMoving() then
+	if CLASS == "SHAMAN" and not IsMounted() and ns.IsMoving() then
 		return MACRO:gsub("MOUNT", GHOST_WOLF)
 	end
 end
