@@ -7,12 +7,16 @@
 
 externals\debug.lua
 externals\events.lua
+externals\memoizing_table.lua
 externals\print.lua
 externals\trand.lua
 
 events\combat.lua
 events\companion_update.lua
 events\player_moving.lua
+
+macros\base.lua
+macros\vehicle.lua
 
 services\build_macro.lua
 services\can_fly.lua
