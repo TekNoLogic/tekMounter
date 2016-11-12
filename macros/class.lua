@@ -2,9 +2,6 @@
 local myname, ns = ...
 
 
-local _, CLASS = UnitClass("player")
-local GHOST_WOLF = GetSpellInfo(2645)
-local TRAVEL_FORM = GetSpellInfo(783)
 local MACRO = ns.GenerateMacro(
 [[#showtooltip
 /cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
@@ -12,8 +9,6 @@ local MACRO = ns.GenerateMacro(
 
 
 function ns.GetClassMacro()
-	if CLASS == "DRUID" then return MACRO:gsub("MOUNT", TRAVEL_FORM) end
-	if CLASS == "SHAMAN" and not IsMounted() and ns.IsMoving() then
-		return MACRO:gsub("MOUNT", GHOST_WOLF)
-	end
+	local mount = ns.GetClassMount()
+	if mount then return MACRO[mount] end
 end
