@@ -15,7 +15,7 @@ local MULTI_MOUNTS = {
 }
 
 
-function ns.GetMultiMount()
+function ns.GetPassengerMount()
 	if not UnitExists("party1") then return end
 	if UnitExists("party2") then return end
 	if not UnitIsConnected("party1") then return end

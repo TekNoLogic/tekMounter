@@ -17,6 +17,7 @@ events\player_moving.lua
 
 macros\base.lua
 macros\combat.lua
+macros\passenger.lua
 macros\vehicle.lua
 
 services\build_macro.lua

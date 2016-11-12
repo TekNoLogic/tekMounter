@@ -34,16 +34,12 @@ RANDOM_MACRO = RANDOM_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 local BUILD_FUNCS = {
 	"GetCombatMacro",
 	"GetVehicleMacro",
+	"GetPassengerMacro",
 }
 function ns.BuildMacro()
 	for _,func in ipairs(BUILD_FUNCS) do
 		local macro = ns[func]()
 		if macro then return macro end
-	end
-
-	local multimount = ns.GetMultiMount()
-	if multimount then
-		return SIMPLE_MACRO:gsub("MOUNT", multimount)
 	end
 
 	if CLASS == "DRUID" then

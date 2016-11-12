@@ -19,7 +19,7 @@ local MACRO = ns.GenerateMacro(
 function ns.GetVehicleMacro()
 	if not CanExitVehicle() then return end
 
-	local multimount = ns.GetMultiMount()
+	local multimount = ns.GetPassengerMount()
 	if multimount then return MACRO[multimount] end
 
 	if CLASS == "DRUID" then return MACRO[TRAVEL_FORM] end
