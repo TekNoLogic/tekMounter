@@ -24,7 +24,8 @@ local SIMPLE_MACRO = [[#showtooltip
 SIMPLE_MACRO = SIMPLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 
 local VEHICLE_MACRO = [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
-/run if CanExitVehicle() then VehicleExit() end
+/leavevehicle [canexitvehicle]
+/stopmacro [canexitvehicle]
 /cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
 ]]
 VEHICLE_MACRO = VEHICLE_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
