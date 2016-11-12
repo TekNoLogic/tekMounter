@@ -18,6 +18,8 @@ end
 
 
 ns.RegisterCallback("_COMPANION_UPDATE", UpdateMacro)
+ns.RegisterCallback("_ENTERING_COMBAT", UpdateMacro)
+ns.RegisterCallback("_LEAVING_COMBAT", UpdateMacro)
 ns.RegisterCallback("_PLAYER_MOVING", UpdateMacro)
 ns.RegisterCallback("_PLAYER_STATIONARY", UpdateMacro)
 ns.RegisterCallback("PLAYER_ENTERING_WORLD", UpdateMacro)

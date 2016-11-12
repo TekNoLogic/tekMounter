@@ -39,6 +39,18 @@ function ns.BuildMacro()
 	local macro
 	if CanExitVehicle() then macro = VEHICLE_MACRO end
 
+	if ns.InCombat() then
+		if CLASS == "DRUID" then
+			return VEHICLE_MACRO:gsub("MOUNT", TRAVEL_FORM)
+		end
+
+		if CLASS == "SHAMAN" then
+			return VEHICLE_MACRO:gsub("MOUNT", GHOST_WOLF)
+		end
+
+		return VEHICLE_MACRO:gsub("MOUNT", ns.GetGroundMount())
+	end
+
 	local multimount = ns.GetMultiMount()
 	if multimount then
 		return (macro or SIMPLE_MACRO):gsub("MOUNT", multimount)
@@ -52,5 +64,5 @@ function ns.BuildMacro()
 		return (macro or SIMPLE_MACRO):gsub("MOUNT", GHOST_WOLF)
 	end
 
-	return (macro or RANDOM_MACRO):gsub("MOUNT", ns.GetGroundMount())
+	return (macro or RANDOM_MACRO):gsub("MOUNT", mount)
 end
