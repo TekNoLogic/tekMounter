@@ -67,5 +67,7 @@ function ns.BuildMacro()
 		return (macro or SIMPLE_MACRO):gsub("MOUNT", GHOST_WOLF)
 	end
 
+	local mount = ns.GetGroundMount()
+	if not mount then return "" end
 	return (macro or RANDOM_MACRO):gsub("MOUNT", mount)
 end
