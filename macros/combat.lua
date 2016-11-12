@@ -13,19 +13,12 @@ local MACRO = ns.GenerateMacro(
 /stopmacro [canexitvehicle]
 /cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
 ]])
--- /run if CanExitVehicle() then VehicleExit() end
 
 
-function ns.GetVehicleMacro()
-	if not CanExitVehicle() then return end
-
-	local multimount = ns.GetMultiMount()
-	if multimount then return MACRO[multimount] end
+function ns.GetCombatMacro()
+	if not ns.InCombat() then return end
 
 	if CLASS == "DRUID" then return MACRO[TRAVEL_FORM] end
-
-	if CLASS == "SHAMAN" and ns.IsMoving() then return MACRO[GHOST_WOLF] end
-
-	local mount = ns.GetGroundMount()
-	if mount then return MACRO[mount] end
+	if CLASS == "SHAMAN" then return MACRO[GHOST_WOLF] end
+	return MACRO[ns.GetGroundMount()]
 end

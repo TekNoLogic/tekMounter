@@ -31,9 +31,15 @@ local RANDOM_MACRO = [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
 RANDOM_MACRO = RANDOM_MACRO:gsub("EMERGENCY_SPELL", EMERGENCY_SPELL)
 
 
+local BUILD_FUNCS = {
+	"GetCombatMacro",
+	"GetVehicleMacro",
+}
 function ns.BuildMacro()
-	local macro = ns.GetVehicleMacro()
-	if macro then return macro end
+	for _,func in ipairs(BUILD_FUNCS) do
+		local macro = ns[func]()
+		if macro then return macro end
+	end
 
 	local multimount = ns.GetMultiMount()
 	if multimount then

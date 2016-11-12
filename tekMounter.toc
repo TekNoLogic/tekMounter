@@ -16,6 +16,7 @@ events\companion_update.lua
 events\player_moving.lua
 
 macros\base.lua
+macros\combat.lua
 macros\vehicle.lua
 
 services\build_macro.lua
