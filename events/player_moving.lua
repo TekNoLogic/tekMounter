@@ -17,7 +17,7 @@ local function Tick()
 	if moving == is_moving then return end
 
 	is_moving = moving
-	local message = is_moving and ns.MOVING or ns.STATIONARY
+	local message = is_moving and "_PLAYER_MOVING" or "_PLAYER_STATIONARY"
 	ns.SendMessage(message)
 end
 

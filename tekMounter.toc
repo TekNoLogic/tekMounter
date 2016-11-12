@@ -10,8 +10,6 @@ externals\events.lua
 externals\print.lua
 externals\trand.lua
 
-constants.lua
-
 events\companion_update.lua
 events\player_moving.lua
 
