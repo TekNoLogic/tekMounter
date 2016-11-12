@@ -15,8 +15,6 @@ constants.lua
 events\companion_update.lua
 events\player_moving.lua
 
-frames\macro_wrapper.lua
-
 services\build_macro.lua
 services\can_fly.lua
 services\edit_macro.lua
