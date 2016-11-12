@@ -5,15 +5,12 @@ local myname, ns = ...
 local _, CLASS = UnitClass("player")
 local GHOST_WOLF = GetSpellInfo(2645)
 local TRAVEL_FORM = GetSpellInfo(783)
-
-
 local MACRO = ns.GenerateMacro(
 [[#showtooltip [combat,nomounted] EMERGENCY_SPELL; MOUNT
 /leavevehicle [canexitvehicle]
 /stopmacro [canexitvehicle]
 /cast [combat,nomounted] EMERGENCY_SPELL; MOUNT
 ]])
--- /run if CanExitVehicle() then VehicleExit() end
 
 
 function ns.GetVehicleMacro()
