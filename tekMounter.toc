@@ -16,11 +16,12 @@ events\companion_update.lua
 events\player_moving.lua
 
 macros\base.lua
+macros\class.lua
 macros\combat.lua
 macros\passenger.lua
+macros\random.lua
 macros\vehicle.lua
 
-services\build_macro.lua
 services\can_fly.lua
 services\edit_macro.lua
 services\get_ground_mount.lua
