@@ -14,6 +14,7 @@ externals\trand.lua
 events\combat.lua
 events\companion_update.lua
 events\player_moving.lua
+events\vehicle.lua
 
 macros\base.lua
 macros\class.lua
