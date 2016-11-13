@@ -12,5 +12,5 @@ local MACRO = ns.GenerateMacro(
 
 function ns.GetRandomMacro()
 	local mount = ns.GetGroundMount()
-	if mount then return MACRO:gsub("MOUNT", mount) end
+	if mount then return MACRO[mount] end
 end

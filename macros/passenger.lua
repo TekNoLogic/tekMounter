@@ -9,6 +9,6 @@ local MACRO = ns.GenerateMacro(
 
 
 function ns.GetPassengerMacro()
-	local multimount = ns.GetPassengerMount()
-	if multimount then return MACRO:gsub("MOUNT", multimount) end
+	local mount = ns.GetPassengerMount()
+	if mount then return MACRO[mount] end
 end
