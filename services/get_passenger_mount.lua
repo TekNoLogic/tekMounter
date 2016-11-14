@@ -17,8 +17,7 @@ local MULTI_MOUNTS = {
 
 function ns.GetPassengerMount()
 	if not UnitExists("party1") then return end
-	if UnitExists("party2") then return end
-	if not UnitIsConnected("party1") then return end
+	if not UnitExists("party2") and not UnitIsConnected("party1") then return end
 
 	if CLASS == "DRUID" and not IsFlyableArea() then return TRAVEL_FORM end
 	for _,mount in pairs(MULTI_MOUNTS) do
