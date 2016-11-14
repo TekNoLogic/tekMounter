@@ -27,4 +27,4 @@ services\can_fly.lua
 services\edit_macro.lua
 services\get_class_mount.lua
 services\get_ground_mount.lua
-services\get_multi_mount.lua
+services\get_passenger_mount.lua
