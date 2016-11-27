@@ -6,6 +6,7 @@ local NAME = "tekMounter"
 local ICON = "INV_Misc_QuestionMark"
 local BUILD_FUNCS = {
 	"GetCombatMacro",
+	"GetMovingMacro",
 	"GetVehicleMacro",
 	"GetPassengerMacro",
 	"GetClassMacro",

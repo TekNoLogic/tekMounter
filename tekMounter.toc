@@ -19,6 +19,7 @@ events\vehicle.lua
 macros\base.lua
 macros\class.lua
 macros\combat.lua
+macros\moving.lua
 macros\passenger.lua
 macros\random.lua
 macros\vehicle.lua
@@ -27,4 +28,5 @@ services\can_fly.lua
 services\edit_macro.lua
 services\get_class_mount.lua
 services\get_ground_mount.lua
+services\get_moving_mount.lua
 services\get_passenger_mount.lua
